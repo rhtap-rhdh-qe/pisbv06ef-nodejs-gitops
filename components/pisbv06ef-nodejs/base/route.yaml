@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: pisbv06ef-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: pisbv06ef-nodejs 
+  name: pisbv06ef-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: pisbv06ef-nodejs
+    weight: 100 
